@@ -224,6 +224,17 @@
       transform: translateY(-5px);
     }
 
+    #bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+}
+
+
   </style>
 </head>
 
@@ -239,7 +250,7 @@
 
   <!-- Hero -->
   <section class="video-fondo hero">
-    <video class="bg-video" autoplay muted loop>
+    <video autoplay muted loop playsinline preload="auto" id="bg-video">
       <source src="assets/video/fondo.index.mp4" type="video/mp4">
     </video>
     <div class="hero-content">
