@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>rf_studiodigital - Proyectos</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===== RESET ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background-color: #0a0a0a;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* ===== NUEVO MENÚ ===== */
+    .menu-toggle {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      color: #ffffff;
+      cursor: pointer;
+      z-index: 1000;
+    }
+
+    .menu-links {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 3.5rem;
+      right: 1rem;
+      background-color: #111;
+      border: 1px solid #333;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      z-index: 1000;
+    }
+
+    .menu-links.show {
+      display: flex;
+    }
+
+    .menu-links a {
+      color: #ebebeb;
+      text-decoration: none;
+      padding: 1rem;
+      display: block;
+      border-bottom: 1px solid #333;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .menu-links a:hover,
+    .menu-links a.active {
+      background-color: #00ffcc;
+      color: #111;
+    }
+
+    /* ===== SECCIÓN PROYECTOS ===== */
+    .logros {
+      padding: 4rem 2rem;
+      background: radial-gradient(circle at center, #101010 0%, #000 100%);
+    }
+
+    .logros h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      color: #00c8ff;
+      margin-bottom: 1rem;
+    }
+
+    .separador-proyecto {
+      width: 80px;
+      height: 4px;
+      background: #00c8ff;
+      margin: 2rem auto;
+      border-radius: 10px;
+    }
+
+    .proyecto {
+      margin-bottom: 4rem;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 0 25px rgba(0, 200, 255, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .proyecto:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 35px rgba(0, 200, 255, 0.2);
+    }
+
+    .proyecto-titulo {
+      font-size: 1.8rem;
+      color: #00c8ff;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+
+    .descripcion-proyecto {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #ccc;
+      text-align: justify;
+      margin-top: 1.5rem;
+    }
+
+    .img-proyecto {
+      max-height: 400px;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(0,200,255,0.3);
+    }
+
+    /* Fade-in animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ===== FOOTER ===== */
+    .footer-wrapper {
+      background: #0b0b0b;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+
+    .footer {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .footer p {
+      font-size: 1rem;
+      color: #ccc;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-links a {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255,255,255,0.05);
+      padding: 0.6rem 1rem;
+      border-radius: 30px;
+      transition: background 0.3s ease, transform 0.2s;
+    }
+
+    .footer-links a:hover {
+      background: rgba(0,200,255,0.2);
+      transform: scale(1.05);
+    }
+
+    .footer-links img {
+      filter: invert(100%);
+    }
+
+    /* ===== BOTÓN ARRIBA ===== */
+    .float-btn {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      background: #00c8ff;
+      color: #000;
+      font-weight: bold;
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.2rem;
+      box-shadow: 0 0 10px #00c8ff;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      z-index: 100;
+    }
+
+    .float-btn:hover {
+      background: #fff;
+      color: #00c8ff;
+      transform: translateY(-5px);
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="top-banner">
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">☰</button>
+    <div class="menu-links" id="menuLinks">
+      <a href="index.html">Inicio</a>
+      <a href="descripcion.html">Descripción</a>
+      <a href="habilidades.html">Habilidades</a>
+      <a href="proyectos.html">Proyectos</a>
+    </div>
+  </div>
+
+  <main>
+    <section class="logros">
+      <div class="logros-contenido">
+        <div class="logros-texto text-center">
+          <h2>Proyectos</h2>
+        </div>
+
+        <div class="separador-proyecto"></div>
+
+        <!-- Proyecto 1 -->
+        <div class="proyecto fade-in">
+          <h3 class="proyecto-titulo text-center">DLS BARBER</h3>
+          <div id="carouselDLS1" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+            <div class="carousel-inner">
+              <div class="carousel-item active text-center">
+                <img src="assets/img/dlsbarber6.png" class="d-block mx-auto img-proyecto" alt="Imagen proyecto 1">
+                <p class="mt-2">Pantalla de inicio del sistema</p>
+              </div>
+              <div class="carousel-item text-center">
+                <img src="assets/img/dlsbarber5.png" class="d-block mx-auto img-proyecto" alt="Imagen proyecto 2">
+                <p class="mt-2">Panel de administración</p>
+              </div>
+              <div class="carousel-item text-center">
+                <img src="assets/img/dlsbarber4.png" class="d-block mx-auto img-proyecto" alt="Imagen proyecto 3">
+                <p class="mt-2">Panel de administración</p>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselDLS1" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselDLS1" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </button>
+          </div>
+          <p class="descripcion-proyecto mt-4 text-center">
+      La plataforma digital de DLS BARBER te permite gestionar tus turnos de forma rápida, cómoda y personalizada. Una vez registrado, accedés a tu perfil para reservar tu cita con nuestros barberos profesionales, elegir el día y horario que mejor se adapte a vos, consultar tus reservas activas y recibir atención personalizada en cada visita. Con un diseño moderno y funcional, este sistema refleja el compromiso de DLS BARBER con la excelencia, el estilo y la confianza. ¡Tu experiencia comienza antes de llegar al local!
+          </p>
+        </div>
+
+        <div class="separador-proyecto"></div>
+
+        <!-- Proyecto 2 -->
+        <div class="proyecto fade-in">
+          <h3 class="proyecto-titulo text-center">Reserva Estancia Turística</h3>
+          <div id="carouselDLS2" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+            <div class="carousel-inner">
+              <div class="carousel-item active text-center">
+                <img src="assets/img/reserva.PNG" class="d-block mx-auto img-proyecto" alt="Imagen proyecto 1">
+                <p class="mt-2">Pantalla de inicio del sistema</p>
+              </div>
+              <div class="carousel-item text-center">
+                <img src="assets/img/reserva2.PNG" class="d-block mx-auto img-proyecto" alt="Imagen proyecto 2">
+                <p class="mt-2">Panel de administración</p>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselDLS2" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselDLS2" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </button>
+          </div>
+          <p class="descripcion-proyecto mt-4 text-center">
+Rincón Oasis presenta una plataforma digital moderna y funcional diseñada para gestionar reservas turísticas de forma clara, eficiente y personalizada. Desde el primer ingreso, el visitante accede a una interfaz intuitiva que permite seleccionar fechas, tipo de habitación y actividades complementarias como cabalgatas, spa, yoga o piscina climatizada.
+
+El sistema incluye un panel administrativo exclusivo para el equipo de gestión, donde se pueden visualizar, editar o eliminar reservas con todos los datos relevantes del cliente. Cada acción está pensada para optimizar la experiencia tanto del huésped como del administrador, garantizando transparencia y control total.
+
+Una vez realizada la reserva, el usuario recibe una confirmación clara y detallada, reforzando la confianza en el servicio. La estética del sitio combina tonos verdes y blancos que evocan naturaleza, descanso y bienestar, alineándose con la propuesta de valor de la estancia: ofrecer momentos únicos en contacto con el entorno.          </p>
+        </div>
+
+        <div class="separador-proyecto"></div>
+
+        <!-- Proyecto 3 -->
+        <div class="proyecto fade-in">
+          <h3 class="proyecto-titulo text-center">Futbol-Impostor</h3>
+          <div id="carouselDLS3" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+            <div class="carousel-inner">
+              <div class="carousel-item active text-center">
+                <img src="assets/img/impostor1.PNG" class="d-block mx-auto img-proyecto" alt="Imagen proyecto 1">
+                <p class="mt-2">Pantalla de inicio del sistema</p>
+              </div>
+              <div class="carousel-item text-center">
+                <img src="assets/img/impostor2.PNG" class="d-block mx-auto img-proyecto" alt="Imagen proyecto 2">
+                <p class="mt-2">Panel de administración</p>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselDLS3" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselDLS3" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </button>
+          </div>
+          <p class="descripcion-proyecto mt-4 text-center">
+            El juego "Impostor Futbolistas" es una adaptación del juego de deducción social "Impostor" (como Among Us), donde los jugadores son asignados roles de Impostor o Futbolista. El objetivo es que los Impostores engañen al grupo sobre un futbolista (la palabra clave secreta) y los Futbolistas identifiquen al impostor.
+
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="footer-wrapper">
+    <footer class="footer">
+      <p>&copy; 2025 rf_studiodigital <br><br> ¡Contáctanos y llevemos tu proyecto al siguiente nivel!</p>
+      <div class="footer-links">
+        <a href="https://wa.me/092870198" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/24/733/733585.png" alt="WhatsApp">
+          <span>092 870 198</span>
+        </a>
+        <a href="https://www.instagram.com/rf_studiodigital" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/24/2111/2111463.png" alt="Instagram">
+          <span>@rf_studiodigital</span>
+        </a>
+        <a href="https://www.facebook.com/rfstudiodigital" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/24/733/733547.png" alt="Facebook">
+          <span>rfstudiodigital</span>
+        </a>
+        <a href="https://www.tiktok.com/@rf_studiodigital" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/24/3046/3046122.png" alt="TikTok">
+          <span>@rf_studiodigital</span>
+        </a>
+      </div>
+    </footer>
+  </div>
+
+  <a href="#" class="float-btn to-top" title="Volver arriba">⬆</a>
+
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const toggle = document.getElementById("menuToggle");
+    const menu = document.getElementById("menuLinks");
+
+    toggle.addEventListener("click", function () {
+      menu.classList.toggle("show");
+    });
+
+    const currentPage = window.location.pathname.split("/").pop();
+    const links = document.querySelectorAll(".menu-links a");
+    links.forEach(link => {
+      if (link.getAttribute("href") === currentPage) {
+        link.classList.add("active");
+      }
+    });
+  });
+  </script>
+</body>
+</html>

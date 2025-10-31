@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>rf_studiodigital - Habilidades</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===== RESET ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background-color: #0a0a0a;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* ===== MENÚ SUPERIOR ===== */
+    .top-banner {
+      position: relative;
+      padding: 1rem 2rem;
+      background: rgba(0,0,0,0.7);
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    /* === TU CSS NUEVO === */
+    .menu-toggle {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      color: #ffffff;
+      cursor: pointer;
+      z-index: 1000;
+    }
+
+    .menu-links {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 3.5rem;
+      right: 1rem;
+      background-color: #111;
+      border: 1px solid #333;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      z-index: 1000;
+    }
+
+    .menu-links.show {
+      display: flex;
+    }
+
+    .menu-links a {
+      color: #ebebeb;
+      text-decoration: none;
+      padding: 1rem;
+      display: block;
+      border-bottom: 1px solid #333;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .menu-links a:hover,
+    .menu-links a.active {
+      background-color: #00ffcc;
+      color: #111;
+    }
+
+    /* ===== SECCIÓN HABILIDADES ===== */
+    .logros {
+      padding: 4rem 2rem;
+      background: radial-gradient(circle at center, #101010 0%, #000 100%);
+      display: flex;
+      justify-content: center;
+    }
+
+    .logros-contenido {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3rem;
+      max-width: 1200px;
+      width: 100%;
+    }
+
+    .logros-texto {
+      flex: 1;
+      animation: fadeInUp 1.5s ease;
+    }
+
+    .logros h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      color: #00c8ff;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .separador-proyecto {
+      width: 80px;
+      height: 4px;
+      background: #00c8ff;
+      margin: 0 auto 2rem auto;
+      border-radius: 10px;
+    }
+
+    .logros-list {
+      list-style: none;
+      color: #ccc;
+      line-height: 1.8;
+      font-size: 1.1rem;
+      padding-left: 1rem;
+    }
+
+    .logros-list li {
+      background: rgba(255, 255, 255, 0.03);
+      margin: 0.5rem 0;
+      padding: 0.7rem 1rem;
+      border-left: 4px solid #00c8ff;
+      border-radius: 6px;
+      transition: background 0.3s ease, transform 0.2s;
+    }
+
+    .logros-list li:hover {
+      background: rgba(0, 200, 255, 0.1);
+      transform: translateX(5px);
+    }
+
+    .logros-imagen {
+      flex: 1;
+      text-align: center;
+      animation: fadeIn 2s ease;
+    }
+
+    .logros-imagen img {
+      max-width: 400px;
+      border-radius: 12px;
+      box-shadow: 0 0 25px rgba(0,200,255,0.2);
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @media (min-width: 992px) {
+      .logros-contenido {
+        flex-direction: row;
+        align-items: center;
+      }
+      .logros-texto {
+        flex: 1;
+      }
+      .logros-imagen {
+        flex: 1;
+      }
+    }
+
+    /* ===== FOOTER ===== */
+    .footer-wrapper {
+      background: #0b0b0b;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+
+    .footer {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .footer p {
+      font-size: 1rem;
+      color: #ccc;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-links a {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255,255,255,0.05);
+      padding: 0.6rem 1rem;
+      border-radius: 30px;
+      transition: background 0.3s ease, transform 0.2s;
+    }
+
+    .footer-links a:hover {
+      background: rgba(0,200,255,0.2);
+      transform: scale(1.05);
+    }
+
+    .footer-links img {
+      filter: invert(100%);
+    }
+
+    /* ===== BOTÓN FLOTANTE ===== */
+    .float-btn {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      background: #00c8ff;
+      color: #000;
+      font-weight: bold;
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.2rem;
+      box-shadow: 0 0 10px #00c8ff;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      z-index: 100;
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .float-btn.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .float-btn:hover {
+      background: #fff;
+      color: #00c8ff;
+      transform: translateY(-5px);
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="top-banner">
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">☰</button>
+    <div class="menu-links" id="menuLinks">
+      <a href="index.html">Inicio</a>
+      <a href="descripcion.html">Descripción</a>
+      <a href="habilidades.html">Habilidades</a>
+      <a href="proyectos.html">Proyectos</a>
+    </div>
+  </div>
+
+  <section class="logros">
+    <div class="logros-contenido">
+      <div class="logros-texto">
+        <h2>Habilidades</h2>
+        <div class="separador-proyecto"></div>
+        <ul class="logros-list">
+          <li>🧠 Pensamiento lógico y resolución de problemas</li>
+          <li>💻 Dominio de tecnologías web (HTML, CSS, JavaScript, React, Vue, Angular)</li>
+          <li>🛠️ Backend y bases de datos (Node.js, PHP, Python, MySQL, MongoDB)</li>
+          <li>🎨 Diseño UI/UX enfocado en la experiencia del usuario</li>
+          <li>📱 Desarrollo responsive y mobile-first</li>
+          <li>🚀 Optimización y rendimiento web</li>
+          <li>🔒 Seguridad web y protección de datos</li>
+          <li>🤝 Trabajo en equipo y comunicación efectiva</li>
+          <li>🔄 Adaptabilidad y aprendizaje continuo</li>
+        </ul>
+      </div>
+      <div class="logros-imagen">
+        <img src="assets/img/habilidades.png" alt="Desarrollador web en acción" />
+      </div>
+    </div>
+  </section>
+
+  <div class="footer-wrapper">
+    <footer class="footer">
+      <p>&copy; 2025 rf_studiodigital <br><br> ¡Contáctanos y llevemos tu proyecto al siguiente nivel!</p>
+      <div class="footer-links">
+        <a href="https://wa.me/092870198" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/24/733/733585.png" alt="WhatsApp">
+          <span>092 870 198</span>
+        </a>
+        <a href="https://www.instagram.com/rf_studiodigital" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/24/2111/2111463.png" alt="Instagram">
+          <span>@rf_studiodigital</span>
+        </a>
+        <a href="https://www.facebook.com/rfstudiodigital" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/24/733/733547.png" alt="Facebook">
+          <span>rfstudiodigital</span>
+        </a>
+        <a href="https://www.tiktok.com/@rf_studiodigital" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/24/3046/3046122.png" alt="TikTok">
+          <span>@rf_studiodigital</span>
+        </a>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Botón flotante -->
+  <a href="#" class="float-btn to-top">⬆</a>
+
+  <script>
+    // Mostrar/ocultar el botón "Volver arriba"
+    window.addEventListener('scroll', function () {
+      const toTopBtn = document.querySelector('.float-btn');
+      if (window.scrollY > 100) {
+        toTopBtn.classList.add('show');
+      } else {
+        toTopBtn.classList.remove('show');
+      }
+    });
+
+    // Función para abrir/cerrar el menú
+    document.addEventListener("DOMContentLoaded", function () {
+      const toggle = document.getElementById("menuToggle");
+      const menu = document.getElementById("menuLinks");
+      const links = document.querySelectorAll(".menu-links a");
+
+      toggle.addEventListener("click", function () {
+        menu.classList.toggle("show");
+      });
+
+      // Cerrar el menú al hacer clic en un enlace ✅
+      links.forEach(link => {
+        link.addEventListener("click", () => {
+          menu.classList.remove("show");
+        });
+      });
+
+      // Detectar página activa
+      const currentPage = window.location.pathname.split("/").pop();
+      links.forEach(link => {
+        if (link.getAttribute("href") === currentPage) {
+          link.classList.add("active");
+        }
+      });
+    });
+  </script>
+</body>
+</html>
+
+
+
