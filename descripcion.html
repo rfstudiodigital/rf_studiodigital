@@ -6,7 +6,7 @@
   <title>rf_studiodigital - Descripción</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Lato:wght@400;700&display=swap" rel="stylesheet">
 
-  <style>
+<style>
   /* ===== RESET ===== */
   * {
     margin: 0;
@@ -16,8 +16,8 @@
 
   body {
     font-family: 'Lato', sans-serif;
-    background-color: #0a0a0a;
-    color: #fff;
+    background-color: #0C0E10; /* Fondo unificado */
+    color: #e9eef2;
     overflow-x: hidden;
   }
 
@@ -36,7 +36,7 @@
   .top-banner {
     position: relative;
     padding: 1rem 1.5rem;
-    background: rgba(0,0,0,0.8);
+    background: rgba(0,0,0,0.55);
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -49,7 +49,7 @@
     background: none;
     border: none;
     font-size: 2rem;
-    color: #ffffff;
+    color: #05BFDB;
     cursor: pointer;
     z-index: 1000;
   }
@@ -60,10 +60,10 @@
     position: absolute;
     top: 3.5rem;
     right: 1rem;
-    background-color: #111;
-    border: 1px solid #333;
+    background-color: #14171A;
+    border: 1px solid #1E2326;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     z-index: 999;
   }
 
@@ -72,24 +72,23 @@
   }
 
   .menu-links a {
-    color: #ebebeb;
-    text-decoration: none;
+    color: #d9e3e8;
     padding: 1rem;
     display: block;
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid #1E2326;
     transition: background 0.3s, color 0.3s;
   }
 
   .menu-links a:hover,
   .menu-links a.active {
-    background-color: #00ffcc;
-    color: #111;
+    background-color: #05BFDB;
+    color: #0C0E10;
   }
 
   /* ===== SECCIÓN DESCRIPCIÓN ===== */
   .vida {
     padding: 3rem 1.5rem;
-    background: radial-gradient(circle at center, #101010 0%, #000 100%);
+    background: radial-gradient(circle at center, #14171A 0%, #0C0E10 100%);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -105,7 +104,7 @@
   .vida h2 {
     font-family: 'Playfair Display', serif;
     font-size: 2rem;
-    color: #00c8ff;
+    color: #05BFDB;
     margin-bottom: 1rem;
     text-align: center;
   }
@@ -113,21 +112,21 @@
   .separador-proyecto {
     width: 70px;
     height: 4px;
-    background: #00c8ff;
+    background: #05BFDB;
     margin: 0 auto 1.5rem auto;
     border-radius: 10px;
   }
 
   .vida p {
-    color: #ccc;
+    color: #b7c4cc;
     font-size: 1rem;
     line-height: 1.7;
     text-align: justify;
-    background: rgba(255,255,255,0.03);
+    background: rgba(255,255,255,0.04);
     padding: 1rem 1.2rem;
     border-radius: 10px;
-    border-left: 4px solid #00c8ff;
-    box-shadow: 0 0 10px rgba(0,200,255,0.1);
+    border-left: 4px solid #05BFDB;
+    box-shadow: 0 0 12px rgba(5,191,219,0.25);
     animation: fadeIn 2s ease;
   }
 
@@ -141,7 +140,7 @@
     width: 90%;
     max-width: 400px;
     border-radius: 15px;
-    box-shadow: 0 0 25px rgba(0,200,255,0.2);
+    box-shadow: 0 0 25px rgba(5,191,219,0.25);
   }
 
   @media (min-width: 768px) {
@@ -177,7 +176,7 @@
 
   /* ===== FOOTER ===== */
   .footer-wrapper {
-    background: #0b0b0b;
+    background: #0A0A0A;
     padding: 2rem 1rem;
     text-align: center;
   }
@@ -189,7 +188,7 @@
 
   .footer p {
     font-size: 0.95rem;
-    color: #ccc;
+    color: #b7c4cc;
     line-height: 1.6;
     margin-bottom: 1.5rem;
   }
@@ -205,19 +204,19 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    background: rgba(255,255,255,0.05);
+    background: rgba(255,255,255,0.04);
     padding: 0.6rem 1rem;
     border-radius: 30px;
     transition: background 0.3s ease, transform 0.2s;
   }
 
   .footer-links a:hover {
-    background: rgba(0,200,255,0.2);
+    background: rgba(5,191,219,0.2);
     transform: scale(1.05);
   }
 
   .footer-links img {
-    filter: invert(100%);
+    filter: none;
   }
 
   /* ===== BOTÓN FLOTANTE ===== */
@@ -225,8 +224,8 @@
     position: fixed;
     bottom: 1.5rem;
     right: 1.5rem;
-    background: #00c8ff;
-    color: #000;
+    background: #05BFDB;
+    color: #0C0E10;
     font-weight: bold;
     border-radius: 50%;
     width: 45px;
@@ -235,7 +234,7 @@
     justify-content: center;
     align-items: center;
     font-size: 1.2rem;
-    box-shadow: 0 0 10px #00c8ff;
+    box-shadow: 0 0 12px rgba(5,191,219,0.6);
     transition: all 0.3s ease;
     text-decoration: none;
     z-index: 100;
@@ -249,11 +248,12 @@
   }
 
   .float-btn:hover {
-    background: #fff;
-    color: #00c8ff;
+    background: #0A4D68;
+    color: #fff;
     transform: translateY(-5px);
   }
 </style>
+
 
 </head>
 
@@ -293,11 +293,10 @@
       <img src="assets/img/descripcion.png" alt="Equipo rf_studiodigital" />
     </div>
   </section>
-
-  <!-- Footer -->
+ <!-- Footer -->
   <div class="footer-wrapper">
     <footer class="footer">
-      <p>&copy; 2025 rf_studiodigital <br><br> ¡Contáctanos y llevemos tu proyecto al siguiente nivel!</p>
+      <p>&copy; 2025 rf_digitalstudio <br><br> ¡Contáctanos y llevemos tu proyecto al siguiente nivel!</p>
       <div class="footer-links">
         <a href="https://wa.me/092870198" target="_blank">
           <img src="https://cdn-icons-png.flaticon.com/24/733/733585.png" alt="WhatsApp">
@@ -305,15 +304,15 @@
         </a>
         <a href="https://www.instagram.com/rf_studiodigital" target="_blank">
           <img src="https://cdn-icons-png.flaticon.com/24/2111/2111463.png" alt="Instagram">
-          <span>@rf_studiodigital</span>
+          <span>@rf_digitalstudio</span>
         </a>
         <a href="https://www.facebook.com/share/17Bhc95tN8/" target="_blank">
           <img src="https://cdn-icons-png.flaticon.com/24/733/733547.png" alt="Facebook">
-          <span>rfstudiodigital</span>
+          <span>rfdigitalstudio</span>
         </a>
-        <a href="https://www.tiktok.com/@rf_studiodigital" target="_blank">
+        <a href="https://www.tiktok.com/@rf_digitalstudio" target="_blank">
           <img src="https://cdn-icons-png.flaticon.com/24/3046/3046122.png" alt="TikTok">
-          <span>@rf_studiodigital</span>
+          <span>@rf_digitalstudio</span>
         </a>
       </div>
     </footer>

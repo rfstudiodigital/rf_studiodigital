@@ -6,7 +6,7 @@
   <title>rf_studiodigital</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Lato:wght@400;700&display=swap" rel="stylesheet">
 
-  <style>
+ <style>
     /* ===== RESET ===== */
     * {
       margin: 0;
@@ -16,8 +16,8 @@
 
     body {
       font-family: 'Lato', sans-serif;
-      color: #fff;
-      background-color: #0a0a0a;
+      color: #e9eef2;
+      background-color: #0C0E10; /* Fondo oscuro profesional */
       overflow-x: hidden;
     }
 
@@ -32,7 +32,7 @@
       display: block;
     }
 
-    /* ===== MENÚ NUEVO ===== */
+    /* ===== MENÚ ===== */
     .menu-toggle {
       position: absolute;
       top: 1rem;
@@ -40,7 +40,7 @@
       background: none;
       border: none;
       font-size: 1.8rem;
-      color: #ffffff;
+      color: #05BFDB; /* Celeste profesional */
       cursor: pointer;
       z-index: 1000;
     }
@@ -51,10 +51,10 @@
       position: absolute;
       top: 3.5rem;
       right: 1rem;
-      background-color: #111;
-      border: 1px solid #333;
+      background-color: #14171A;
+      border: 1px solid #1E2326;
       border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
       z-index: 1000;
     }
 
@@ -63,18 +63,16 @@
     }
 
     .menu-links a {
-      color: #ebebeb;
-      text-decoration: none;
+      color: #d9e3e8;
       padding: 1rem;
-      display: block;
-      border-bottom: 1px solid #333;
+      border-bottom: 1px solid #1E2326;
       transition: background 0.3s, color 0.3s;
     }
 
     .menu-links a:hover,
     .menu-links a.active {
-      background-color: #00ffcc;
-      color: #111;
+      background-color: #05BFDB;
+      color: #0C0E10;
     }
 
     /* ===== HERO ===== */
@@ -95,7 +93,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      filter: brightness(0.4);
+      filter: brightness(0.45);
       z-index: -1;
     }
 
@@ -103,39 +101,40 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       z-index: 10;
-      animation: fadeIn 2s ease;
+      animation: fadeIn 1.8s ease;
     }
 
     .hero-content .logo {
-      width: 200px;
+      width: 180px;
       margin-bottom: 1.5rem;
-      box-shadow: 0 0 25px rgba(0,200,255,0.6);
       border-radius: 10px;
+      box-shadow: 0 0 18px rgba(5, 191, 219, 0.4);
     }
 
     .hero-content h1 {
       font-family: 'Playfair Display', serif;
       font-size: 3rem;
-      letter-spacing: 2px;
-      margin-bottom: 0.5rem;
-      color: #00c8ff;
+      letter-spacing: 1px;
+      margin-bottom: 0.8rem;
+      color: #05BFDB; /* Celeste corporativo */
     }
 
     .hero-content p {
-      font-size: 1.3rem;
+      font-size: 1.2rem;
+      max-width: 600px;
+      color: #b7c4cc;
       margin-bottom: 2rem;
     }
 
     .btn {
       display: inline-block;
-      background: #00c8ff;
-      color: #000;
+      background: #0A4D68; /* Azul petróleo */
+      color: #fff;
       padding: 0.8rem 2rem;
       border-radius: 30px;
       font-weight: 700;
@@ -143,9 +142,9 @@
     }
 
     .btn:hover {
-      background: #fff;
-      color: #00c8ff;
-      box-shadow: 0 0 15px #00c8ff;
+      background: #05BFDB;
+      color: #0C0E10;
+      box-shadow: 0 0 12px rgba(5,191,219,0.4);
     }
 
     @keyframes fadeIn {
@@ -155,7 +154,7 @@
 
     /* ===== FOOTER ===== */
     .footer-wrapper {
-      background: #0b0b0b;
+      background: #0A0A0A;
       padding: 2rem 1rem;
       text-align: center;
     }
@@ -167,8 +166,7 @@
 
     .footer p {
       font-size: 1rem;
-      color: #ccc;
-      line-height: 1.6;
+      color: #b7c4cc;
       margin-bottom: 1.5rem;
     }
 
@@ -183,28 +181,28 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      background: rgba(255,255,255,0.05);
+      background: rgba(255,255,255,0.04);
       padding: 0.6rem 1rem;
       border-radius: 30px;
       transition: background 0.3s ease, transform 0.2s;
     }
 
     .footer-links a:hover {
-      background: rgba(0,200,255,0.2);
+      background: rgba(5,191,219,0.2);
       transform: scale(1.05);
     }
 
     .footer-links img {
-      filter: invert(100%);
+      filter: none;
     }
 
-    /* ===== BOTÓN VOLVER ARRIBA ===== */
+    /* ===== BOTÓN ARRIBA ===== */
     .float-btn {
       position: fixed;
       bottom: 1.5rem;
       right: 1.5rem;
-      background: #00c8ff;
-      color: #000;
+      background: #05BFDB;
+      color: #0C0E10;
       font-weight: bold;
       border-radius: 50%;
       width: 45px;
@@ -213,29 +211,29 @@
       justify-content: center;
       align-items: center;
       font-size: 1.2rem;
-      box-shadow: 0 0 10px #00c8ff;
+      box-shadow: 0 0 10px rgba(5,191,219,0.5);
       transition: all 0.3s ease;
       text-decoration: none;
     }
 
     .float-btn:hover {
-      background: #fff;
-      color: #00c8ff;
+      background: #0A4D68;
+      color: #fff;
       transform: translateY(-5px);
     }
 
     #bg-video {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
-  z-index: -1;
-}
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -1;
+    }
+</style>
 
 
-  </style>
 </head>
 
 <body>
@@ -254,8 +252,8 @@
       <source src="assets/video/fondo.index.mp4" type="video/mp4">
     </video>
     <div class="hero-content">
-      <img src="assets/img/logorf_studiodigital.jpg" alt="Logo rf_studiodigital" class="logo">
-      <h1>rf_studiodigital</h1>
+      <img src="assets/img/logorf_digitalstudio.png" alt="Logo rf_studiodigital" class="logo">
+      <h1>rf_digitalstudio</h1>
       <p>¡Bienvenidos!</p>
       <a href="descripcion.html" class="btn">Conócenos</a>
     </div>
@@ -264,23 +262,23 @@
   <!-- Footer -->
   <div class="footer-wrapper">
     <footer class="footer">
-      <p>&copy; 2025 rf_studiodigital <br><br> ¡Contáctanos y llevemos tu proyecto al siguiente nivel!</p>
+      <p>&copy; 2025 rf_digitalstudio <br><br> ¡Contáctanos y llevemos tu proyecto al siguiente nivel!</p>
       <div class="footer-links">
         <a href="https://wa.me/092870198" target="_blank">
           <img src="https://cdn-icons-png.flaticon.com/24/733/733585.png" alt="WhatsApp">
           <span>092 870 198</span>
         </a>
-        <a href="https://www.instagram.com/rf_studiodigital" target="_blank">
+        <a href="https://www.instagram.com/rf_digitalstudio" target="_blank">
           <img src="https://cdn-icons-png.flaticon.com/24/2111/2111463.png" alt="Instagram">
-          <span>@rf_studiodigital</span>
+          <span>@rf_digitalstudio</span>
         </a>
         <a href="https://www.facebook.com/share/17Bhc95tN8/" target="_blank">
           <img src="https://cdn-icons-png.flaticon.com/24/733/733547.png" alt="Facebook">
-          <span>rfstudiodigital</span>
+          <span>rfdigitalstudio</span>
         </a>
         <a href="https://www.tiktok.com/@rf_studiodigital" target="_blank">
           <img src="https://cdn-icons-png.flaticon.com/24/3046/3046122.png" alt="TikTok">
-          <span>@rf_studiodigital</span>
+          <span>@rf_digitalstudio</span>
         </a>
       </div>
     </footer>
