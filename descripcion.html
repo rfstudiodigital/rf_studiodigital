@@ -1,363 +1,607 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>rf_studiodigital - Descripción</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RF_DigitalStudio - Descripción</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lato:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
 
-<style>
-  /* ===== RESET ===== */
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  body {
-    font-family: 'Lato', sans-serif;
-    background-color: #0C0E10; /* Fondo unificado */
-    color: #e9eef2;
-    overflow-x: hidden;
-  }
-
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
-
-  img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-  }
-
-  /* ===== MENÚ SUPERIOR ===== */
-  .top-banner {
-    position: relative;
-    padding: 1rem 1.5rem;
-    background: rgba(0,0,0,0.55);
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-  }
-
-  .menu-toggle {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: none;
-    border: none;
-    font-size: 2rem;
-    color: #05BFDB;
-    cursor: pointer;
-    z-index: 1000;
-  }
-
-  .menu-links {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 3.5rem;
-    right: 1rem;
-    background-color: #14171A;
-    border: 1px solid #1E2326;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    z-index: 999;
-  }
-
-  .menu-links.show {
-    display: flex;
-  }
-
-  .menu-links a {
-    color: #d9e3e8;
-    padding: 1rem;
-    display: block;
-    border-bottom: 1px solid #1E2326;
-    transition: background 0.3s, color 0.3s;
-  }
-
-  .menu-links a:hover,
-  .menu-links a.active {
-    background-color: #05BFDB;
-    color: #0C0E10;
-  }
-
-  /* ===== SECCIÓN DESCRIPCIÓN ===== */
-  .vida {
-    padding: 3rem 1.5rem;
-    background: radial-gradient(circle at center, #14171A 0%, #0C0E10 100%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-  }
-
-  .vida-texto {
-    flex: 1;
-    max-width: 600px;
-    animation: fadeInUp 1.5s ease;
-  }
-
-  .vida h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2rem;
-    color: #05BFDB;
-    margin-bottom: 1rem;
-    text-align: center;
-  }
-
-  .separador-proyecto {
-    width: 70px;
-    height: 4px;
-    background: #05BFDB;
-    margin: 0 auto 1.5rem auto;
-    border-radius: 10px;
-  }
-
-  .vida p {
-    color: #b7c4cc;
-    font-size: 1rem;
-    line-height: 1.7;
-    text-align: justify;
-    background: rgba(255,255,255,0.04);
-    padding: 1rem 1.2rem;
-    border-radius: 10px;
-    border-left: 4px solid #05BFDB;
-    box-shadow: 0 0 12px rgba(5,191,219,0.25);
-    animation: fadeIn 2s ease;
-  }
-
-  .vida-imagen {
-    flex: 1;
-    text-align: center;
-    animation: fadeIn 2s ease;
-  }
-
-  .vida-imagen img {
-    width: 90%;
-    max-width: 400px;
-    border-radius: 15px;
-    box-shadow: 0 0 25px rgba(5,191,219,0.25);
-  }
-
-  @media (min-width: 768px) {
-    .vida {
-      flex-direction: row;
-      justify-content: center;
-      gap: 3rem;
-      text-align: left;
-    }
-
-    .vida h2 {
-      font-size: 2.5rem;
-    }
-
-    .vida p {
-      font-size: 1.1rem;
-    }
-
-    .vida-imagen img {
-      max-width: 450px;
-    }
-  }
-
-  @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-
-  /* ===== FOOTER ===== */
-  .footer-wrapper {
-    background: #0A0A0A;
-    padding: 2rem 1rem;
-    text-align: center;
-  }
-
-  .footer {
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  .footer p {
-    font-size: 0.95rem;
-    color: #b7c4cc;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-  }
-
-  .footer-links {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-
-  .footer-links a {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: rgba(255,255,255,0.04);
-    padding: 0.6rem 1rem;
-    border-radius: 30px;
-    transition: background 0.3s ease, transform 0.2s;
-  }
-
-  .footer-links a:hover {
-    background: rgba(5,191,219,0.2);
-    transform: scale(1.05);
-  }
-
-  .footer-links img {
-    filter: none;
-  }
-
-  /* ===== BOTÓN FLOTANTE ===== */
-  .float-btn {
-    position: fixed;
-    bottom: 1.5rem;
-    right: 1.5rem;
-    background: #05BFDB;
-    color: #0C0E10;
-    font-weight: bold;
-    border-radius: 50%;
-    width: 45px;
-    height: 45px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.2rem;
-    box-shadow: 0 0 12px rgba(5,191,219,0.6);
-    transition: all 0.3s ease;
-    text-decoration: none;
-    z-index: 100;
-    opacity: 0;
-    visibility: hidden;
-  }
-
-  .float-btn.show {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  .float-btn:hover {
-    background: #0A4D68;
-    color: #fff;
-    transform: translateY(-5px);
-  }
-</style>
-
-
-</head>
-
-<body>
-
-  <!-- Menú -->
-  <div class="top-banner">
-    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">☰</button>
-    <div class="menu-links" id="menuLinks">
-      <a href="index.html">Inicio</a>
-      <a href="descripcion.html">Descripción</a>
-      <a href="habilidades.html">Habilidades</a>
-      <a href="proyectos.html">Proyectos</a>
-    </div>
-  </div>
-
-  <!-- Sección principal -->
-  <section class="vida">
-    <div class="vida-texto">
-      <h2>Sobre Nosotros</h2>
-      <div class="separador-proyecto"></div>
-      <p>
-        ¡Hola! Somos un estudio digital dedicado a impulsar tu presencia en Internet.  
-        Nos especializamos en la creación de sitios web, tiendas online y aplicaciones digitales adaptadas a las necesidades de cada cliente.  
-        <br><br>
-        Combinamos diseño moderno, desarrollo funcional y estrategias digitales efectivas para ayudarte a destacar en el mundo online.  
-        Nos encargamos de todo el proceso: desde la idea inicial, el diseño visual y la programación, hasta el mantenimiento y optimización continua de tu proyecto.  
-        <br><br>
-        Trabajamos con pasión, creatividad y compromiso para ofrecerte soluciones únicas y personalizadas que reflejen la identidad de tu marca y generen resultados reales.  
-        <br><br>
-        Nuestro objetivo: que tu negocio crezca, se vea profesional y funcione de manera impecable en la web.  
-        ¡Contáctanos y llevemos tu proyecto al siguiente nivel!
-      </p>
-    </div>
-
-    <div class="vida-imagen">
-      <img src="assets/img/descripcion.png" alt="Equipo rf_studiodigital" />
-    </div>
-  </section>
- <!-- Footer -->
-  <div class="footer-wrapper">
-    <footer class="footer">
-      <p>&copy; 2025 rf_digitalstudio <br><br> ¡Contáctanos y llevemos tu proyecto al siguiente nivel!</p>
-      <div class="footer-links">
-        <a href="https://wa.me/092870198" target="_blank">
-          <img src="https://cdn-icons-png.flaticon.com/24/733/733585.png" alt="WhatsApp">
-          <span>092 870 198</span>
-        </a>
-        <a href="https://www.instagram.com/rf_studiodigital" target="_blank">
-          <img src="https://cdn-icons-png.flaticon.com/24/2111/2111463.png" alt="Instagram">
-          <span>@rf_digitalstudio</span>
-        </a>
-        <a href="https://www.facebook.com/share/17Bhc95tN8/" target="_blank">
-          <img src="https://cdn-icons-png.flaticon.com/24/733/733547.png" alt="Facebook">
-          <span>rfdigitalstudio</span>
-        </a>
-        <a href="https://www.tiktok.com/@rf_digitalstudio" target="_blank">
-          <img src="https://cdn-icons-png.flaticon.com/24/3046/3046122.png" alt="TikTok">
-          <span>@rf_digitalstudio</span>
-        </a>
-      </div>
-    </footer>
-  </div>
-
-  <!-- Botón flotante -->
-  <a href="#" class="float-btn to-top">⬆</a>
-
-  <script>
-    // Mostrar/ocultar el botón "Volver arriba"
-    window.addEventListener('scroll', function () {
-      const toTopBtn = document.querySelector('.float-btn');
-      if (window.scrollY > 100) {
-        toTopBtn.classList.add('show');
-      } else {
-        toTopBtn.classList.remove('show');
+    <style>
+      /* ===== RESET ===== */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
       }
-    });
 
-    // Función para abrir/cerrar el menú
-    document.addEventListener("DOMContentLoaded", function () {
-      const toggle = document.getElementById("menuToggle");
-      const menu = document.getElementById("menuLinks");
-      const links = document.querySelectorAll(".menu-links a");
+      html {
+        scroll-behavior: smooth;
+      }
 
-      toggle.addEventListener("click", function () {
-        menu.classList.toggle("show");
-      });
+      body {
+        font-family: "Lato", sans-serif;
+        background-color: #0f172a;
+        color: #f1f5f9;
+        overflow-x: hidden;
+      }
 
-      // Cerrar menú al hacer clic en un enlace
-      links.forEach(link => {
-        link.addEventListener("click", () => {
-          menu.classList.remove("show");
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      /* ===== MENÚ ===== */
+      .top-banner {
+        position: relative;
+        padding: 1.5rem;
+        background: rgba(15, 23, 42, 0.95);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(124, 58, 237, 0.3);
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+      }
+
+      .menu-toggle {
+        display: none;
+      }
+
+      .menu-links {
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        top: auto;
+        right: auto;
+        background: rgba(30, 41, 59, 0.95);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(124, 58, 237, 0.3);
+        border-radius: 50px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        z-index: 999;
+        overflow: hidden;
+        gap: 0;
+      }
+
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .menu-links.show {
+        display: flex;
+      }
+
+      .menu-links a {
+        color: #e2e8f0;
+        padding: 0.8rem 1.5rem;
+        border-right: 1px solid rgba(124, 58, 237, 0.2);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        white-space: nowrap;
+      }
+
+      .menu-links a:last-child {
+        border-right: none;
+      }
+
+      .menu-links a::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 3px;
+        width: 100%;
+        background: #7c3aed;
+        transform: scaleX(0);
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .menu-links a:hover::before,
+      .menu-links a.active::before {
+        transform: scaleX(1);
+      }
+
+      .menu-links a:hover,
+      .menu-links a.active {
+        background: rgba(5, 191, 219, 0.15);
+        color: #a78bfa;
+      }
+
+      /* ===== SECCIÓN DESCRIPCIÓN ===== */
+      .vida {
+        padding: 5rem 2rem;
+        background: linear-gradient(
+          135deg,
+          #0c0e10 0%,
+          #1a1d23 50%,
+          #0c0e10 100%
+        );
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4rem;
+        position: relative;
+      }
+
+      .vida::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+          radial-gradient(
+            circle at 30% 40%,
+            rgba(124, 58, 237, 0.08) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 70% 60%,
+            rgba(167, 139, 250, 0.12) 0%,
+            transparent 50%
+          );
+        pointer-events: none;
+      }
+
+      .vida-texto {
+        flex: 1;
+        max-width: 700px;
+        animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        z-index: 1;
+      }
+
+      .vida h2 {
+        font-family: "Playfair Display", serif;
+        font-size: 3rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #05bfdb 0%, #0a4d68 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 1.5rem;
+        text-align: center;
+      }
+
+      .separador-proyecto {
+        width: 100px;
+        height: 5px;
+        background: linear-gradient(
+          90deg,
+          transparent 0%,
+          #7c3aed 50%,
+          transparent 100%
+        );
+        margin: 0 auto 3rem auto;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(124, 58, 237, 0.5);
+      }
+
+      .vida p {
+        color: #cbd5e1;
+        font-size: 1.1rem;
+        line-height: 2;
+        text-align: justify;
+        background: rgba(124, 58, 237, 0.05);
+        backdrop-filter: blur(10px);
+        padding: 2rem;
+        border-radius: 20px;
+        border: 1px solid rgba(124, 58, 237, 0.15);
+        box-shadow: 0 10px 40px rgba(124, 58, 237, 0.1);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .vida p::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 4px;
+        background: linear-gradient(180deg, #7c3aed 0%, #a78bfa 100%);
+      }
+
+      .vida p:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 50px rgba(124, 58, 237, 0.2);
+        border-color: rgba(124, 58, 237, 0.3);
+      }
+
+      .vida-imagen {
+        flex: 1;
+        text-align: center;
+        animation: fadeIn 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        z-index: 1;
+      }
+
+      .vida-imagen img {
+        width: 90%;
+        max-width: 500px;
+        border-radius: 24px;
+        box-shadow: 0 20px 60px rgba(124, 58, 237, 0.3),
+          0 0 0 1px rgba(124, 58, 237, 0.1);
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .vida-imagen img:hover {
+        transform: scale(1.03) translateY(-10px);
+        box-shadow: 0 30px 80px rgba(124, 58, 237, 0.4),
+          0 0 0 1px rgba(124, 58, 237, 0.2);
+      }
+
+      @media (min-width: 768px) {
+        .vida {
+          flex-direction: row;
+          justify-content: center;
+          gap: 5rem;
+          padding: 6rem 3rem;
+        }
+
+        .vida h2 {
+          font-size: 3.5rem;
+          text-align: left;
+        }
+
+        .separador-proyecto {
+          margin: 0 0 3rem 0;
+        }
+
+        .vida p {
+          font-size: 1.15rem;
+        }
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: scale(0.95);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      /* ===== FOOTER ===== */
+      .footer-wrapper {
+        background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+        padding: 3rem 1rem;
+        text-align: center;
+        border-top: 1px solid rgba(124, 58, 237, 0.3);
+        position: relative;
+      }
+
+      .footer-wrapper::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 200px;
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent 0%,
+          #7c3aed 50%,
+          transparent 100%
+        );
+      }
+
+      .footer {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .footer p {
+        font-size: 1rem;
+        color: #b7c4cc;
+        line-height: 1.8;
+        margin-bottom: 2rem;
+      }
+
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      .footer-links a {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        background: rgba(124, 58, 237, 0.08);
+        backdrop-filter: blur(10px);
+        padding: 0.8rem 1.5rem;
+        border-radius: 50px;
+        border: 1px solid rgba(124, 58, 237, 0.2);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .footer-links a::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background: rgba(124, 58, 237, 0.2);
+        transform: translate(-50%, -50%);
+        transition: width 0.5s, height 0.5s;
+      }
+
+      .footer-links a:hover::before {
+        width: 300px;
+        height: 300px;
+      }
+
+      .footer-links a:hover {
+        background: rgba(124, 58, 237, 0.2);
+        border-color: #7c3aed;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(124, 58, 237, 0.3);
+      }
+
+      .footer-links img {
+        filter: none;
+        position: relative;
+        z-index: 1;
+      }
+
+      .footer-links span {
+        position: relative;
+        z-index: 1;
+      }
+
+      /* ===== BOTÓN FLOTANTE ===== */
+      .float-btn {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        background: linear-gradient(135deg, #05bfdb 0%, #0a4d68 100%);
+        color: #fff;
+        font-weight: bold;
+        border-radius: 50%;
+        width: 55px;
+        height: 55px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.5rem;
+        box-shadow: 0 5px 20px rgba(5, 191, 219, 0.4);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        text-decoration: none;
+        border: 2px solid rgba(5, 191, 219, 0.3);
+        z-index: 100;
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      .float-btn.show {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .float-btn:hover {
+        transform: translateY(-8px) scale(1.1);
+        box-shadow: 0 10px 30px rgba(5, 191, 219, 0.6);
+      }
+
+      @media (max-width: 768px) {
+        .footer-links {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .footer-links a {
+          width: 100%;
+          max-width: 280px;
+          justify-content: center;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Menú -->
+    <div class="top-banner">
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+        ☰
+      </button>
+      <div class="menu-links" id="menuLinks">
+        <a href="index.html">Inicio</a>
+        <a href="descripcion.html">Descripción</a>
+        <a href="habilidades.html">Habilidades</a>
+        <a href="proyectos.html">Proyectos</a>
+      </div>
+    </div>
+
+    <!-- Sección principal -->
+    <section class="vida">
+      <div class="vida-texto scroll-reveal">
+        <h2>Sobre Nosotros</h2>
+        <div class="separador-proyecto"></div>
+        <p>
+          ¡Hola! Somos un estudio digital dedicado a impulsar tu presencia en
+          Internet. Nos especializamos en la creación de sitios web, tiendas
+          online y aplicaciones digitales adaptadas a las necesidades de cada
+          cliente.
+          <br /><br />
+          Combinamos diseño moderno, desarrollo funcional y estrategias
+          digitales efectivas para ayudarte a destacar en el mundo online. Nos
+          encargamos de todo el proceso: desde la idea inicial, el diseño visual
+          y la programación, hasta el mantenimiento y optimización continua de
+          tu proyecto.
+          <br /><br />
+          Trabajamos con pasión, creatividad y compromiso para ofrecerte
+          soluciones únicas y personalizadas que reflejen la identidad de tu
+          marca y generen resultados reales.
+          <br /><br />
+          Nuestro objetivo: que tu negocio crezca, se vea profesional y funcione
+          de manera impecable en la web. ¡Contáctanos y llevemos tu proyecto al
+          siguiente nivel!
+        </p>
+      </div>
+
+      <div class="vida-imagen scroll-reveal">
+        <img src="assets/img/descripcion.png" alt="Equipo RF_DigitalStudio" />
+      </div>
+    </section>
+
+    <!-- CTA Flotante -->
+    <a
+      href="https://wa.me/092870198?text=Hola!%20Me%20interesa%20conocer%20más%20sobre%20sus%20servicios"
+      target="_blank"
+      class="cta-floating"
+    >
+      💬 Conversemos
+    </a>
+
+    <!-- Footer -->
+    <div class="footer-wrapper">
+      <footer class="footer">
+        <p>
+          &copy; 2025 RF_DigitalStudio <br /><br />
+          ¡Contáctanos y llevemos tu proyecto al siguiente nivel!
+        </p>
+        <div class="footer-links">
+          <a href="https://wa.me/092870198" target="_blank">
+            <img
+              src="https://cdn-icons-png.flaticon.com/24/733/733585.png"
+              alt="WhatsApp"
+            />
+            <span>092 870 198</span>
+          </a>
+          <a href="https://www.instagram.com/rf_studiodigital" target="_blank">
+            <img
+              src="https://cdn-icons-png.flaticon.com/24/2111/2111463.png"
+              alt="Instagram"
+            />
+            <span>@rf_digitalstudio</span>
+          </a>
+          <a href="https://www.facebook.com/share/17Bhc95tN8/" target="_blank">
+            <img
+              src="https://cdn-icons-png.flaticon.com/24/733/733547.png"
+              alt="Facebook"
+            />
+            <span>rfdigitalstudio</span>
+          </a>
+          <a href="https://www.tiktok.com/@rf_digitalstudio" target="_blank">
+            <img
+              src="https://cdn-icons-png.flaticon.com/24/3046/3046122.png"
+              alt="TikTok"
+            />
+            <span>@rf_digitalstudio</span>
+          </a>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Botón flotante -->
+    <a href="#" class="float-btn to-top">⬆</a>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const toggle = document.getElementById("menuToggle");
+        const menu = document.getElementById("menuLinks");
+        const toTopBtn = document.querySelector(".float-btn");
+        const links = document.querySelectorAll(".menu-links a");
+
+        // Toggle menu
+        toggle.addEventListener("click", function () {
+          menu.classList.toggle("show");
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener("click", function (e) {
+          if (!toggle.contains(e.target) && !menu.contains(e.target)) {
+            menu.classList.remove("show");
+          }
+        });
+
+        // Close menu on link click
+        links.forEach((link) => {
+          link.addEventListener("click", () => {
+            menu.classList.remove("show");
+          });
+        });
+
+        // Highlight active page
+        const currentPage = window.location.pathname.split("/").pop();
+        links.forEach((link) => {
+          if (link.getAttribute("href") === currentPage) {
+            link.classList.add("active");
+          }
+        });
+
+        // Show/hide back to top button
+        window.addEventListener("scroll", function () {
+          if (window.scrollY > 100) {
+            toTopBtn.classList.add("show");
+          } else {
+            toTopBtn.classList.remove("show");
+          }
+        });
+
+        // Smooth scroll to top
+        toTopBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        });
+
+        // Scroll Reveal Animation
+        const observerOptions = {
+          threshold: 0.15,
+          rootMargin: "0px 0px -100px 0px",
+        };
+
+        const observer = new IntersectionObserver(function (entries) {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("revealed");
+            }
+          });
+        }, observerOptions);
+
+        document.querySelectorAll(".scroll-reveal").forEach((el) => {
+          observer.observe(el);
         });
       });
-
-      // Detectar página activa
-      const currentPage = window.location.pathname.split("/").pop();
-      links.forEach(link => {
-        if (link.getAttribute("href") === currentPage) {
-          link.classList.add("active");
-        }
-      });
-    });
-  </script>
-</body>
+    </script>
+  </body>
 </html>
-
