@@ -138,25 +138,27 @@
         position: relative;
       }
 
-      .vida::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-          radial-gradient(
-            circle at 30% 40%,
-            rgba(124, 58, 237, 0.08) 0%,
-            transparent 50%
-          ),
-          radial-gradient(
-            circle at 70% 60%,
-            rgba(167, 139, 250, 0.12) 0%,
-            transparent 50%
-          );
-        pointer-events: none;
-      }
+     .vida::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(
+      circle at 30% 40%,
+      rgba(124, 58, 237, 0.08) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 70% 60%,
+      rgba(167, 139, 250, 0.12) 0%,
+      transparent 50%
+    );
+  pointer-events: none;
+}
+
 
       .vida-texto {
         flex: 1;
@@ -441,11 +443,11 @@
         ☰
       </button>
       <div class="menu-links" id="menuLinks">
-        <a href="index.html">Inicio</a>
-        <a href="descripcion.html">Descripción</a>
-        <a href="habilidades.html">Habilidades</a>
-        <a href="proyectos.html">Proyectos</a>
-      </div>
+      <a href="index_new.html">Inicio</a>
+      <a href="descripcion.html">Descripción</a>
+      <a href="habilidades.html">Habilidades</a>
+      <a href="proyectos.html">Proyectos</a>
+    </div>
     </div>
 
     <!-- Sección principal -->
@@ -605,3 +607,4 @@
     </script>
   </body>
 </html>
+f
